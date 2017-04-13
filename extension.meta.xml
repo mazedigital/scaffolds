@@ -14,6 +14,9 @@
 		</author>
 	</authors>
 	<releases>
+		<release version="0.6" date="2017-04-13" min="2.6.0">
+			- Add support for non `symphony` backend-url
+		</release>
 		<release version="0.5" date="2012-02-03" min="2.2">
 			- Add support for exporting/importing the Section essentials (name, navigation group, backend visibility). Definition files now have a slightly different output format (old formats still supported). Implements [#4](https://github.com/brendo/scaffolds/issues/4) &amp; [#5](https://github.com/brendo/scaffolds/issues/5)
 			- Fixed exporting of some Select values, [#2](https://github.com/brendo/scaffolds/issues/2)

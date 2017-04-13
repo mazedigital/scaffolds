@@ -218,7 +218,7 @@
 				// Populate the iframe with the GET request so that the definition will downloaded
 				$('#iframe').attr(
 					'src',
-					Symphony.WEBSITE + '/extensions/scaffolds/lib/class.spit.php?section=' + section_name + '&schema=' + encodeURIComponent(JSON.stringify(def, null, "  "))
+					Symphony.Context.get('root') + '/extensions/scaffolds/lib/class.spit.php?section=' + section_name + '&schema=' + encodeURIComponent(JSON.stringify(def, null, "  "))
 				);
 			},
 
