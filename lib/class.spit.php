@@ -36,7 +36,7 @@
 		}
 	}
 
-	if(isset($_GET) && isset($_GET['schema'])) {
-		Spit::output($_GET);
+	if(isset($_POST) && isset($_POST['schema'])) {
+		Spit::output($_POST);
 	}
 

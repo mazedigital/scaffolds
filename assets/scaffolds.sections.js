@@ -15,7 +15,8 @@
 		// can be prompted for download
 		$scaffolds
 			.append($('<input type="file" id="file" />'))
-			.append($('<iframe id="iframe" />'));
+			.append($('<iframe id="iframe" />'))
+			.append($('<form id="scaffolds-form" target="iframe" method="POST" action="'+Symphony.Context.get('root') + '/extensions/scaffolds/lib/class.spit.php"><input name="section" id="scaffolds-section" type="hidden"/><input name="schema" id="scaffolds-schema" type="hidden"/></form>'));
 
 		var $file = $('#file').bind('change', function() {
 			// If no file was uploaded, abort.
@@ -210,10 +211,14 @@
 				// Get the current Section Name
 				var section_name = $('input[name*=meta]:first').val();
 				// Populate the iframe with the GET request so that the definition will downloaded
-				$('#iframe').attr(
-					'src',
-					Symphony.Context.get('root') + '/extensions/scaffolds/lib/class.spit.php?section=' + section_name + '&schema=' + encodeURIComponent(JSON.stringify(def, null, "  "))
-				);
+				// use the form to get iframe data as GET urls might be too long for complex sections
+				$("#scaffolds-schema").val(JSON.stringify(def, null, "  "));
+				$("#scaffolds-section").val(section_name);
+				$("#scaffolds-form").submit();
+				// $('#iframe').attr(
+				// 	'src',
+				// 	Symphony.Context.get('root') + '/extensions/scaffolds/lib/class.spit.php?section=' + section_name + '&schema=' + encodeURIComponent(JSON.stringify(def, null, "  "))
+				// );
 			},
 
 			// Returns the value of a given field, approtiate for Symphony.
