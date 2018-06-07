@@ -129,7 +129,8 @@
 							return $(this).val() === label;
 						}).length !== 1
 					) {
-						$('.apply option[value = ' + definition.type + ']').attr('selected', 'selected');
+						// $('.apply option[value = ' + definition.type + ']').attr('selected', 'selected');
+						$('.apply select').val(definition.type);
 						$('.apply .constructor').trigger('click.duplicator');
 
 
